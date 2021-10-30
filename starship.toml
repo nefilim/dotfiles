@@ -1,0 +1,9 @@
+[character]
+success_symbol = "[➜](bold green)"
+
+[java]
+style = "red dimmed"
+
+[time]
+disabled = false
+style = "bold yellow"
