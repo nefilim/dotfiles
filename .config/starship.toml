@@ -1,0 +1,222 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+format = '$all$directory$line_break$time$character'
+scan_timeout = 30
+command_timeout = 500
+add_newline = true
+
+[aws]
+format = 'on [$symbol($profile )(\($region\) )]($style)'
+symbol = '☁️  '
+style = 'bold yellow'
+disabled = false
+
+[aws.region_aliases]
+
+[battery]
+full_symbol = "🔋 "
+charging_symbol = "⚡️ "
+discharging_symbol = "💀 "
+
+[[battery.display]]
+threshold = 10
+style = "bold red"
+
+[character]
+format = '$symbol '
+success_symbol = '[❯](bold green)'
+error_symbol = '[❯](bold red)'
+vicmd_symbol = '[❮](bold green)'
+disabled = false
+
+[directory]
+format = 'in [$path](bright-cyan)'
+truncation_length = 3
+truncation_symbol = '…/'
+
+[gcloud]
+format = 'on [$symbol$account(\($region\))]($style) '
+symbol = '☁️ '
+style = 'bold blue'
+disabled = true
+
+[gcloud.region_aliases]
+
+[git_branch]
+format = 'on [$symbol$branch]($style)(:[$remote]($style)) '
+symbol = ' '
+style = 'bold purple'
+truncation_length = 9223372036854775807
+truncation_symbol = '…'
+only_attached = false
+always_show_remote = false
+disabled = false
+
+[helm]
+format = 'via [$symbol($version )]($style)'
+symbol = '⎈ '
+style = 'bold white'
+disabled = false
+detect_extensions = []
+detect_files = [
+    'helmfile.yaml',
+    'Chart.yaml',
+]
+detect_folders = []
+
+[git_commit]
+commit_hash_length = 7
+format = '[\($hash$tag\)]($style) '
+style = 'green bold'
+only_detached = true
+disabled = false
+tag_symbol = '🏷   '
+tag_disabled = true
+
+[git_state]
+rebase = 'REBASING'
+merge = 'MERGING'
+revert = 'REVERTING'
+cherry_pick = 'CHERRY-PICKING'
+bisect = 'BISECTING'
+am = 'AM'
+am_or_rebase = 'AM/REBASE'
+style = 'bold yellow'
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+disabled = false
+
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style) )'
+style = 'red bold'
+stashed = '\$'
+ahead = '⇡'
+behind = '⇣'
+diverged = '⇕'
+conflicted = '='
+deleted = '✘'
+renamed = '»'
+modified = '!'
+staged = '+'
+untracked = '?'
+disabled = false
+
+[hg_branch]
+symbol = ' '
+style = 'bold purple'
+format = 'on [$symbol$branch]($style) '
+truncation_length = 9223372036854775807
+truncation_symbol = '…'
+disabled = true
+
+[hostname]
+ssh_only = true
+trim_at = '.'
+format = '[$hostname]($style) in '
+style = 'green dimmed bold'
+disabled = false
+
+[java]
+disabled = true
+format = 'via [$symbol($version )]($style)'
+version_format = 'v${raw}'
+style = 'red dimmed'
+symbol = '☕ '
+detect_extensions = [
+    'java',
+    'class',
+    'jar',
+    'gradle',
+    'clj',
+    'cljc',
+]
+detect_files = [
+    'pom.xml',
+    'build.gradle.kts',
+    'build.sbt',
+    '.java-version',
+    'deps.edn',
+    'project.clj',
+    'build.boot',
+]
+detect_folders = []
+
+[jobs]
+threshold = 1
+format = '[$symbol$number]($style) '
+symbol = '✦'
+style = 'bold blue'
+disabled = false
+
+[kotlin]
+format = 'via [$symbol($version )]($style)'
+symbol = '🅺 '
+style = 'bold blue'
+kotlin_binary = 'kotlin'
+disabled = false
+detect_extensions = [
+    'kt',
+    'kts',
+]
+detect_files = []
+detect_folders = []
+
+[kubernetes]
+symbol = '☸ '
+format = '[$symbol$context \[$namespace\]]($style) '
+disabled = false
+contexts = [
+  { context_pattern = "gke_prod-digital-banno.+", style = "bold red", symbol = "☸ ", context_alias = "JH prod" },
+  { context_pattern = "gke_stage-digital-banno.+", style = "202", symbol = "☸ ", context_alias = "JH stage" },
+  { context_pattern = "gke_dev-digital-banno.+", style = "green", symbol = "☸ ", context_alias = "JH dev" },
+]
+
+[rust]
+format = 'via [$symbol($version )]($style)'
+version_format = 'v${raw}'
+symbol = '🦀 '
+style = 'bold red'
+disabled = false
+detect_extensions = ['rs']
+detect_files = ['Cargo.toml']
+detect_folders = []
+
+[scala]
+disabled = true
+format = 'via [$symbol($version )]($style)'
+style = 'red bold'
+symbol = '🆂 '
+detect_extensions = [
+    'sbt',
+    'scala',
+]
+detect_files = [
+    '.scalaenv',
+    '.sbtenv',
+    'build.sbt',
+]
+detect_folders = ['.metals']
+
+[shell]
+format = '$indicator '
+bash_indicator = 'bsh'
+fish_indicator = 'fsh'
+zsh_indicator = 'zsh'
+powershell_indicator = 'psh'
+ion_indicator = 'ion'
+elvish_indicator = 'esh'
+tcsh_indicator = 'tsh'
+disabled = true
+
+[time]
+format = 'at [$time]($style) '
+style = 'bold yellow'
+use_12hr = false
+disabled = false
+utc_time_offset = 'local'
+time_range = '-'
+
+[username]
+format = '[$user]($style) in '
+style_root = 'red bold'
+style_user = 'yellow bold'
+show_always = false
+disabled = false
